@@ -1,0 +1,27 @@
+/* Add to your existing styles.css */
+.hero {
+    background: url('path-to-magical-background-image.jpg') no-repeat center center;
+    background-size: cover;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero h1 {
+    font-family: 'Apple Chancery', cursive;
+    color: #fff;
+    animation: fadeInUp 2s;
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Add styles for navigation, main content, and footer */
