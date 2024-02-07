@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Portfolio Website powered by Echo</title>
+    <style>
+        /* Global Styles */
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Apple Chancery', cursive;
+            animation: gradient 15s ease infinite;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            color: #fff;
+            overflow-x: hidden;
+            /* Prevent horizontal scroll */
+        }
+
+        .typewriter h1 {
+            font-family: 'Apple Chancery', cursive;
+            /* Specify your preferred font */
+            font-size: 2.5em;
+            /* Larger font size */
+            color: #fff;
+            margin: 0;
+            position: absolute;
+            top: 50px;
+            /* Adjust the top position as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            overflow: hidden;
+            /* Ensure text doesn't overflow */
+            border-right: 3px solid white;
+            /* Cursor style */
+            padding-right: 1em;
+            /* Space for cursor */
+        }
+
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: white;
+            }
+        }
+
+        #projects h2 {
+            /* Adjust the top value as needed to lower the 'Projects' heading */
+            top: 80px;
+            /* Example value, adjust as needed */
+            left: 15%;
+            transform: rotate(-10deg);
+            font-family: 'Apple Chancery', cursive;
+            font-size: 2em;
+            color: #fff;
+            opacity: 0;
+        }
+
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+            /* This will ensure the copyright is at the very bottom of your page */
+        }
+
+        .sticky-note {
+            background-color: #fdfd86;
+            padding: 15px;
+            margin: 10px;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 220px;
+            height: 300px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            left: 20px;
+            bottom: 100px;
+            transform: rotate(-10deg);
+            transition: transform 1s, opacity 1s;
+            opacity: 0;
+            font-family: 'Apple Chancery', cursive;
+            /* Specify your preferred font */
+        }
+
+        .sticky-note-active {
+            opacity: 1;
+            transform: rotate(-5deg) scale(1.1);
+        }
+
+        .about-me-image {
+            display: block;
+            max-width: 150px;
+            margin: 50px auto 20px;
+            border-radius: 50%;
+        }
+
+        #about-me {
+            text-align: center;
+            position: fixed;
+            top: 250px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+        }
+
+        .chatbot-container {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background-color: #9c4fb1;
+            color: rgb(23, 2, 2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Apple Chancery', cursive;
+            /* Specify your preferred font */
+        }
+
+        /* Card Flip Styles */
+        .flip-card {
+            background-color: transparent;
+            width: 200px;
+            height: 300px;
+            perspective: 1000px;
+            margin: 0 auto;
+            top: 100px;
+            /* Adjust as needed */
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .flip-card-front {
+            background-color: #bbb;
+            color: black;
+        }
+
+        .flip-card-back {
+            background-color: #2980b9;
+            color: white;
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="typewriter">
+        <h1>Hello, Welcome to Suneeta Modekurty's website</h1>
+    </header>
+
+    <main>
+        <section id="about-me">
+            <a href="https://github.com/data-aficionado/data-aficionado" target="_blank">
+                <img src="suneeta_4.jpeg" alt="Suneeta Modekurty" class="about-me-image">
+                <h2>About Me</h2>
+            </a>
+            <h2>Xplore Suneeta's work with Echo</h2>
+        </section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-display" id="project-display">
+                <!-- Projects will appear here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Copyright © Suneeta Modekurty</p>
+    </footer>
+
+    <div class="chatbot-container">
+        <p>Hey there! </p>
+        <p>It's Echo, Suneeta's AI Pal </p>
+        <p> Let's xplore her work together!</p>
+    </div>
+
+    <script>
+        function typewriterEffect(element, text, typingDelay, erasingDelay) {
+            let index = 0;
+            let forward = true;
+            let waitingTime = 2000; // Time to wait before backspacing
+
+            function updateText() {
+                setTimeout(() => {
+                    if (forward) {
+                        if (index < text.length) {
+                            element.textContent += text.charAt(index);
+                            index++;
+                            updateText();
+                        } else {
+                            // Pause before starting to delete
+                            forward = false;
+                            setTimeout(updateText, waitingTime);
+                        }
+                    } else {
+                        if (index > 0) {
+                            // Remove last character
+                            element.textContent = element.textContent.substring(0, element.textContent.length - 1);
+                            index--;
+                            updateText();
+                        } else {
+                            // Pause before typing again
+                            forward = true;
+                            setTimeout(updateText, waitingTime);
+                        }
+                    }
+                }, forward ? typingDelay : erasingDelay);
+            }
+
+            // Clear previous text before starting typewriter effect
+            element.textContent = '';
+            updateText();
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const typewriterElement = document.querySelector('.typewriter h1');
+            if (typewriterElement) {
+                typewriterEffect(typewriterElement, "Hello, Welcome to Suneeta Modekurty's website", 150, 100);
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const typewriterElement = document.querySelector('.typewriter h1');
+                if (typewriterElement) {
+                    typewriterEffect(typewriterElement, "Hello, Welcome to Suneeta Modekurty's website", 150, 100);
+                }
+
+                fetchGithubProjects('data-aficionado'); // Fetch projects on load
+            });
+
+            function fetchGithubProjects(username) {
+                fetch(`https://api.github.com/users/${username}/repos`)
+                    .then(response => response.json())
+                    .then(repos => {
+                        const projectsContainer = document.getElementById('project-display');
+                        projectsContainer.innerHTML = ''; // Clear existing projects
+
+                        repos.forEach(repo => {
+                            const flipCard = document.createElement('div');
+                            flipCard.className = 'flip-card';
+                            flipCard.innerHTML = `
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <h3>${repo.name}</h3>
+            </div>
+            <div class="flip-card-back">
+              <p>${repo.description || 'No description available.'}</p>
+              <a href="${repo.html_url}" target="_blank">View Project</a>
+            </div>
+          </div>
+        `;
+                            projectsContainer.appendChild(flipCard);
+                        });
+                    })
+                    .catch(error => console.error('Error fetching GitHub projects:', error));
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
